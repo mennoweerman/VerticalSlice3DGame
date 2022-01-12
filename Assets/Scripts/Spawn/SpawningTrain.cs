@@ -10,9 +10,9 @@ public class SpawningTrain : MonoBehaviour
 
     [Header("The back of the train")]
     public GameObject BackOfTrain;
-    Collider backOfTheTrain;
+    public Collider backOfTheTrain;
 
-    [Header("The public Ints :D")]
+    [Header("The public Ints")]
     public int DeathCount = 0;
 
     [Header("Floats in coroutines")]
