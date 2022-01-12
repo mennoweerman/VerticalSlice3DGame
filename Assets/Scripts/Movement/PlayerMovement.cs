@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour
+{
+    [Header("GameObject Player")]
+    public GameObject Player;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Player.transform.position = new Vector3(-8.58f, -8.6f, 17.3f);
+        }
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            Player.transform.position = new Vector3(-1f, -8.6f, 17.3f);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Player.transform.position = new Vector3(10.86f, -8.6f, 17.3f);
+        }
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            Player.transform.position = new Vector3(-1f, -8.6f, 17.3f);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Front")
+        {
+
+        }
+    }
+}
