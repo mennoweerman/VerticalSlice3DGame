@@ -57,9 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Movement\CoinMeter.cs" />
     <Compile Include="Assets\Scripts\Spawn\SpawningTrain.cs" />
     <Compile Include="Assets\Scripts\Menu&apos;s\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\Movement\CoinMeter.cs" />
+    <Compile Include="Assets\Scripts\Spawn\MoveTowardsPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

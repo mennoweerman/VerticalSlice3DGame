@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SpawningTrain : MonoBehaviour
 {
+
     [Header("Array of GameObjects and Transforms")]
     public GameObject[] RandomTrains;
     public Transform[] RandomTransform;
 
-    [Header("The back of the train")]
-    public GameObject BackOfTrain;
-    public Collider backOfTheTrain;
+    [Header("Collider")]
+    public Collider Train;
 
-    [Header("The public Ints")]
+    [Header("The public Ints & bools")]
     public int DeathCount = 0;
 
     [Header("Floats in coroutines")]
@@ -21,42 +21,44 @@ public class SpawningTrain : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        coroutine = RandomTrains1(2f);
-        BackOfTrain.tag = "Back";
+        coroutine = RandomTrains1(15f);
+        InvokeRepeating("Update", 20, 20);
     }
 
     // Update is called once per frame
-    private void Update()
+    public void Update()
     {
+        GameObject NewTrains = RandomTrains[Random.Range(0, RandomTrains.Length)];
+        Transform Pingas = RandomTransform[Random.Range(0, RandomTransform.Length)];
+        Quaternion spawnRotation = Quaternion.identity;
+
+        GameObject DestroyTrain = Instantiate(NewTrains, Pingas.transform.position, spawnRotation) as GameObject;
+        DestroyTrain.transform.Rotate(0, -90, 0);
+        
         _ = StartCoroutine(coroutine);
+        OnCollisionEnter();
+
+        if (DeathCount == 1)
+        {
+           Destroy(DestroyTrain);
+        }
+
     }
 
     public IEnumerator RandomTrains1(float waitTime)
     {
         while (true)
         {
-            GameObject NewTrains = RandomTrains[Random.Range(0, RandomTransform.Length)];
-            Transform Pingas = RandomTransform[Random.Range(0, RandomTransform.Length)];
-            Quaternion spawnRotation = Quaternion.identity;
-            GameObject DestroyTrain = Instantiate(NewTrains, Pingas.transform.position, spawnRotation) as GameObject;
-            OnCollisionEnter(backOfTheTrain);
             yield return new WaitForSeconds(waitTime);
-            if(DeathCount == 1)
-            {
-                Destroy(DestroyTrain);
-            }
         }
     }
 
-
-    public void OnCollisionEnter(Collider collision)
+    public void OnCollisionEnter()
     {
-        if (BackOfTrain.CompareTag("UnSpawn"))
+        if (Train.tag == "UnSpawn")
         {
             DeathCount += 1;
         }
     }
-
-
 
 }
