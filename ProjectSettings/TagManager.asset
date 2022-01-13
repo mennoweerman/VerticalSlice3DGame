@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Front
   - Back
+  - UnSpawn
   layers:
   - Default
   - TransparentFX

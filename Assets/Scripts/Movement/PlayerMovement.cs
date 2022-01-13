@@ -12,11 +12,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Player.transform.position = new Vector3(-8.58f, -8.6f, 17.3f);
+            Player.transform.position = new Vector3(-12.74f, -8.6f, 17.3f);
         }
         if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            Player.transform.position = new Vector3(-1f, -8.6f, 17.3f);
+            Player.transform.position = new Vector3(-0.1400003f, -8.6f, 17.3f);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
-            Player.transform.position = new Vector3(-1f, -8.6f, 17.3f);
+            Player.transform.position = new Vector3(-0.1400003f, -8.6f, 17.3f);
         }
     }
 

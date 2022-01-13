@@ -34,4 +34,10 @@ public class PauseMenu : MonoBehaviour
 
         }
     }
+
+    public void PauseButton()
+    {
+        PausingMenu.SetActive(true);
+        isPaused = true;
+    }
 }

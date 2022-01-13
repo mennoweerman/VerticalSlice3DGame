@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4233852713714005773}
   m_Layer: 0
   m_Name: train karting
-  m_TagString: Back
+  m_TagString: Front
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
